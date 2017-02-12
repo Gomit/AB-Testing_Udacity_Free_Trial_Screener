@@ -9,7 +9,7 @@ At the time of this experiment, Udacity courses currently have two options on th
 
 In the experiment, Udacity tested a change where if the student clicked "start free trial", they were asked how much time they had available to devote to the course. 
 
-<img src="images/screener.png">
+<img src="images/Screener.png">
 
 If the student indicated 5 or more hours per week, they would be taken through the checkout process as usual. If they indicated fewer than 5 hours per week, a message would appear indicating that Udacity courses usually require a greater time commitment for successful completion, and suggesting that the student might like to access the course materials for free. At this point, the student would have the option to continue enrolling in the free trial, or access the course materials for free instead. This screenshot shows what the experiment looks like.
 
@@ -20,8 +20,8 @@ The unit of diversion is a cookie, although if the student enrolls in the free t
 # 2. Metric Choice
 ### 2.1 High Level concepts for metrics
 ###### Overall business objective
--Help students get jobs (What Udacity ultimately cares about)
--Financially sustainable (Need to make money to keep going)
+- Help students get jobs (What Udacity ultimately cares about)
+- Financially sustainable (Need to make money to keep going)
 
 ###### Customer funnel
 <img src="images/Funnel.png">
@@ -31,7 +31,6 @@ Any place "unique cookies" are mentioned, the uniqueness is determined by day. (
 
 
 ### 2.2 Matrics choice
-***
 - **Number of cookies:** That is, number of unique cookies to view the course overview page. ($d_{min}$=3000)
 - **Number of user-ids:** That is, number of users who enroll in the free trial. ($d_{min}$=50)
 - **Number of clicks:** That is, number of unique cookies to click the "Start free trial" button (which happens before the free trial screener is trigger). ($d_{min}$=240)
@@ -99,21 +98,23 @@ Giving us the following distribution:
 
 
 |Label |Baseline Values| Sample|
-|-------------------|---|
+|-------------------|---|---|
 | Unique cookies to click "Start free trial" | 3200| 400 |
 | Enrollment | 660 | 82,5 |
-[Calculations in mathematica](Equations/Equations)
+
+[Calculations in mathematica](Equations/Equations.nb)
 
 The number of clicks and enrollments both follow a binomial distribution. The standard deviation of the normal distribution rates is computed with: $σ = \sqrt(\frac{p(1-p)}{n})$
 
 Where the probability and standard deviation calculated as:
 
 |Evaluation metric                    |p          | Standard deviation|
-|-------------------                  |---        |                   |
+|-------------------                  |---        | ---               |
 | Gross Conversion                    | 0.20625   | 0.0202            |
 | Retention                           | 0.53      | 0.0549            |
 | Net conversion                      | 0.1093125 | 0.0156            |
-[Calculations in mathematica](Equations/Equations)
+
+[Calculations in mathematica](Equations/Equations.nb)
 
 For gross conversion and net conversion, the analytical standard deviation will likely match the empirical standard deviation as both have the number of cookies as their denominator, which is also our unit of diversion. While for the metric retention, the  analytical standard deviation will likely not match the empirical standard deviation, given that the unit of analysis for retention is user-id, while the unit of diversion for the experiment is cookie.
 
@@ -138,7 +139,7 @@ Sample size, calculated using Evan's Awesome A/B Tools. With the help of the pro
 | Gross Conversion| 20.625%|1%|5%|80%|25,835|.08|646,450|
 | Retention| 53%|1%|5%|80%|39,155|.0165|4,741,212|
 | Net Conversion| 10.93%|1%|5%|80%|27,413|.08|685,325|
-[Calculations in mathematica](Equations/Equations)
+[Calculations in mathematica](Equations/Equations.nb)
 
 The number of page views required to conduct this experiment is 4.741.212 since it is our largest sample size
 
